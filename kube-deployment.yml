@@ -96,7 +96,7 @@ spec:
   template:
     metadata:
       labels:
-        app: words-web
+        app: web
     spec:
       containers:
       - name: web
