@@ -31,8 +31,7 @@ spec:
         ports:
         - containerPort: 5432
           name: db
-      imagePullSecrets:
-      - name: regcred    
+
 ---
 apiVersion: v1
 kind: Service
@@ -68,8 +67,7 @@ spec:
         ports:
         - containerPort: 8080
           name: api
-      imagePullSecrets:
-      - name: regcred        
+
 ---
 apiVersion: v1
 kind: Service
@@ -104,5 +102,3 @@ spec:
         ports:
         - containerPort: 80
           name: words-web
-      imagePullSecrets:
-      - name: regcred    
