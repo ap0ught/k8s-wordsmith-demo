@@ -100,7 +100,7 @@ spec:
     spec:
       containers:
       - name: web
-        image: r.cfcr.io/krendell12/web_image_v1.0:run_from_cli
+        image: r.cfcr.io/krendell12/web_image_v1.0:tag_without_variables
         ports:
         - containerPort: 80
           name: words-web
