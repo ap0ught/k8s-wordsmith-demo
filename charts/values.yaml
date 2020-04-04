@@ -15,7 +15,7 @@ db:
   
 words:
   name: words
-  replicas: 1
+  replicas: 5
   internalport: 8080
 
 web: 
