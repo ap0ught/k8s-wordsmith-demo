@@ -100,9 +100,9 @@ spec:
     spec:
       containers:
       - name: web
-        image: r.cfcr.io/krendell12/web_image_v1.0:${{ CF_BRANCH_TAG_NORMALIZED }}-${{ CF_SHORT_REVISION }}
+        image: "r.cfcr.io/krendell12/web_image_1.0:${{ CF_BRANCH_TAG_NORMALIZED }}-${{ CF_SHORT_REVISION }}"
         ports:
         - containerPort: 80
           name: words-web
       imagePullSecrets:
-        - name: code-fresh-new
+        - name: my-cluster
