@@ -5,29 +5,26 @@
 replicaCount: 1
 
 image:
-  repository: "r.cfcr.io/krendell12/"
-  pullPolicy: "Always"
-  
-db:
-  name: db
-  replicas: 1
-  internalport: 5432
-  
-words:
-  name: words
-  replicas: 5
-  internalport: 8080
+  repository: krendell12/web-app 
+  pullPolicy: IfNotPresent
 
-web: 
-  name: web
-  replicas: 1
-  externalport: 80
-  internalport: 8081
+serviceAccount:
+  create: true
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name:
+podSecurityContext: {}
 
-resources: 
-  limits:
-    cpu: 100m
-    memory: 128Mi
-  requests:
-    cpu: 100m
-    memory: 128Mi
+securityContext: {}
+
+service:
+  type: ClusterIP
+  port: 8081
+
+limits:
+  cpu: 100m
+  memory: 128Mi
+requests:
+  cpu: 100m
+  memory: 128Mi
+

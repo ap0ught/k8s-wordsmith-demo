@@ -27,12 +27,13 @@ spec:
     spec:
       containers:
       - name: db
-        image: r.cfcr.io/krendell12/db:master
+        image: krendell12/web-app:database1
         ports:
         - containerPort: 5432
           name: db
       imagePullSecrets:
-        - name: code-fresh-new
+        - name: regcred
+
 ---
 apiVersion: v1
 kind: Service
@@ -64,12 +65,13 @@ spec:
     spec:
       containers:
       - name: words
-        image: r.cfcr.io/krendell12/words:master
+        image: krendell12/web-app:words1
         ports:
         - containerPort: 8080
           name: api
       imagePullSecrets:
-        - name: code-fresh-new
+        - name: regcred
+
 ---
 apiVersion: v1
 kind: Service
@@ -96,13 +98,13 @@ spec:
   template:
     metadata:
       labels:
-        app: web
+        app: words-web
     spec:
       containers:
       - name: web
-        image: "r.cfcr.io/krendell12/web_image_1.0:${{ CF_BRANCH_TAG_NORMALIZED }}-${{ CF_SHORT_REVISION }}"
+        image: krendell12/web-app:web1
         ports:
         - containerPort: 80
           name: words-web
       imagePullSecrets:
-        - name: my-cluster
+        - name: regcred

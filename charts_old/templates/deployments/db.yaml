@@ -1,20 +1,22 @@
 ---
+
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  name: web
+  name: db
   labels:
-    app: words-web
+    app: db
 spec:
   template:
     metadata:
       labels:
-        app: words-web
+        app: db
     spec:
       containers:
-      - name: web
-        image: krendell12/web-app:web1 
+      - name: db
+        image: krendell12/web-app:database1
         ports:
-        - containerPort: 80
+        - containerPort: 5432
+          name: db
       imagePullSecrets:
-      - name: regcred
+        - name: regcred 

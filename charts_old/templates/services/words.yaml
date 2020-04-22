@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.words.name }}
+  labels:
+    app: {{ .Values.words.name }}
+spec:
+  ports:
+    - port: {{ .Values.words.port }}
+      targetPort: 8080 
+      name: {{ .Values.words.name }}
+  selector:
+    app: {{ .Values.words.name }}
+  clusterIP: None
