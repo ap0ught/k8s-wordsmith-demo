@@ -4,19 +4,19 @@ kind: Deployment
 metadata:
   name: words
   labels:
-    app: words-api
+    app: words
 spec:
   replicas: 5
   template:
     metadata:
       labels:
-        app: words-api
+        app: words
     spec:
       containers:
-      - name: words 
-        image: krendell12/web-app:words1 
+      - name: words
+        image: krendell12/web-app:words1
         ports:
         - containerPort: 8080
-          name: words
+          name: api
       imagePullSecrets:
-      - name: regcred
+        - name: regcred 

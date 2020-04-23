@@ -2,12 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ .Values.web.name }}
+  name: web
+  labels:
+    app: words-web
 spec:
   ports:
-    - port: {{ .Values.web.port }}
-      targetPort: {{ .Values.web.targetport }}
-      name: {{ .Values.web.name }}
+    - port: 8081
+      targetPort: 80
+      name: web
   selector:
-    app: web
+    app: words-web 
   type: LoadBalancer
